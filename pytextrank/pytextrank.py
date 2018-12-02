@@ -785,7 +785,7 @@ def json_iter (path):
     """
     iterator for JSON-per-line in a file pattern
     """
-    with open(path, 'r') as f:
+    with open(path, 'r',encoding = 'utf-8') as f:
         for line in f.readlines():
             yield json.loads(line)
 
