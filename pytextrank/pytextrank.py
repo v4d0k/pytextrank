@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+    #!/usr/bin/env python
 # encoding: utf-8
 
 from collections import namedtuple
@@ -14,7 +14,7 @@ import re
 import spacy
 import statistics
 import string
-from spacy.lang.el import Greek
+
 
 DEBUG = False # True
 
@@ -175,7 +175,7 @@ def fix_hypenation (foo):
     return bar
 
 
-def parse_graf (doc_id, graf_text, base_idx, spacy_nlp=Greek()):
+def parse_graf (doc_id, graf_text, base_idx, spacy_nlp=None):
     """
     CORE ALGORITHM: parse and markup sentences in the given paragraph
     """
@@ -185,7 +185,7 @@ def parse_graf (doc_id, graf_text, base_idx, spacy_nlp=Greek()):
     # set up the spaCy NLP parser
     if not spacy_nlp:
         if not SPACY_NLP:
-            SPACY_NLP = Greek()
+            SPACY_NLP = spacy.load('el')
 
         spacy_nlp = SPACY_NLP
 
@@ -356,7 +356,7 @@ def text_rank (path):
 ######################################################################
 ## collect key phrases
 
-SPACY_NLP = Greek()
+SPACY_NLP = None
 STOPWORDS = None
 
 
@@ -556,7 +556,7 @@ def normalize_key_phrases (path, ranks, stopwords=None, spacy_nlp=None, skip_ner
     # set up the spaCy NLP parser
     if not spacy_nlp:
         if not SPACY_NLP:
-            SPACY_NLP = Greek()
+            SPACY_NLP = spacy.load('el')
 
         spacy_nlp = SPACY_NLP
 
