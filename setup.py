@@ -34,7 +34,7 @@ setup(name='pytextrank',
           'datasketch',
           'graphviz',
           'networkx',
-          'spacy',
+          'spacy-nightly',
           'statistics',
       ],
       zip_safe=False)
